@@ -31,23 +31,16 @@ export const Projects = () => {
   const prevProject = () => setCurrent((prev) => (prev - 1 + projects.length) % projects.length);
 
   return (
-    <section className="projects" style={{ padding: 32 }}>
+    <section className="projects-section" style={{ padding: 32 }}>
       <h2 className="heading" style={{ textAlign: 'center', marginBottom: 32 }}>
         Meus <span>Projetos</span>
       </h2>
-      <div style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        gap: 32,
-        maxWidth: 900,
-        margin: "0 auto"
-      }}>
-        <button onClick={prevProject} style={{ fontSize: 32, background: "none", border: "none", cursor: "pointer" }}>&lt;</button>
+      <div className="projects-container">
+        <button className="projects-nav-btn" onClick={prevProject}>&lt;</button>
         {projects.slice(current, current + 2).map((project, idx) => (
           <ProjectCard key={project.title} {...project} />
         ))}
-        <button onClick={nextProject} style={{ fontSize: 32, background: "none", border: "none", cursor: "pointer" }}>&gt;</button>
+        <button className="projects-nav-btn" onClick={nextProject}>&gt;</button>
       </div>
     </section>
   );
