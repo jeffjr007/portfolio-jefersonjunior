@@ -15,6 +15,7 @@ export function ProjectCard({
   className,
 }) {
   const [showVideo, setShowVideo] = useState(false);
+  const [showInfo, setShowInfo] = useState(false);
 
   const cardStyle = {
     background: "var(--second-bg-color)",
@@ -136,6 +137,24 @@ export function ProjectCard({
               {showVideo ? "Fechar vídeo" : "Ver vídeo"}
             </button>
           )}
+          {/* Botão Sobre o Projeto para CarregueAqui */}
+          {title === "CarregueAqui" && (
+            <button
+              style={{
+                background: "#fff",
+                color: "var(--main-color)",
+                border: "1px solid var(--main-color)",
+                borderRadius: 6,
+                padding: "4px 10px",
+                fontSize: 12,
+                fontWeight: 600,
+                cursor: "pointer"
+              }}
+              onClick={() => setShowInfo(true)}
+            >
+              Login e senha
+            </button>
+          )}
         </div>
         
         {showVideo && video && (
@@ -181,6 +200,47 @@ export function ProjectCard({
                 {link.icon} {link.type}
               </a>
             ))}
+          </div>
+        )}
+        {/* Modal de informações do projeto CarregueAqui */}
+        {showInfo && title === "CarregueAqui" && (
+          <div style={{
+            background: "#fff",
+            color: "#222",
+            borderRadius: 12,
+            padding: 24,
+            minWidth: 220,
+            maxWidth: 320,
+            boxShadow: "0 4px 24px #0003",
+            textAlign: "center",
+            position: "absolute",
+            top: "40px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 10
+          }}>
+            <h2 style={{color: "var(--main-color)", marginBottom: 12, fontSize: 18}}>Acesso de demonstração</h2>
+            <div style={{marginBottom: 8}}>
+              <strong>Login:</strong> <span style={{fontFamily: 'monospace'}}>teste@gmail.com</span>
+            </div>
+            <div style={{marginBottom: 16}}>
+              <strong>Senha:</strong> <span style={{fontFamily: 'monospace'}}>teste123</span>
+            </div>
+            <button
+              style={{
+                background: "var(--main-color)",
+                color: "#fff",
+                border: "none",
+                borderRadius: 6,
+                padding: "6px 16px",
+                fontSize: 13,
+                fontWeight: 600,
+                cursor: "pointer"
+              }}
+              onClick={() => setShowInfo(false)}
+            >
+              Fechar
+            </button>
           </div>
         )}
       </div>
