@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ProjectCard } from "./ProjectCard";
+import { getLanguage } from '../util/language';
 
 const projects = [
   {
@@ -26,6 +27,7 @@ const projects = [
 
 export const Projects = () => {
   const [current, setCurrent] = useState(0);
+  const language = getLanguage();
 
   const nextProject = () => setCurrent((prev) => (prev + 1) % projects.length);
   const prevProject = () => setCurrent((prev) => (prev - 1 + projects.length) % projects.length);
@@ -33,7 +35,7 @@ export const Projects = () => {
   return (
     <section className="projects-section" style={{ padding: 32 }}>
       <h2 className="heading" style={{ textAlign: 'center', marginBottom: 32 }}>
-        Meus <span>Projetos</span>
+        {language.Projects.sectionTitle}<span>{language.Projects.sectionTitle2}</span>
       </h2>
       <div className="projects-container">
         <button className="projects-nav-btn" onClick={prevProject}>&lt;</button>
