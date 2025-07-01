@@ -1,6 +1,6 @@
 # Guia de Manutenção - Portfólio
 
-Este documento contém informações importantes para manter e atualizar o portfólio.
+Este documento contém informações atualizadas por mim para facilitar a manutenção.
 
 ## 📁 Estrutura de Arquivos
 
